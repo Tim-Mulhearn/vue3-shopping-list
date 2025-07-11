@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <h2>Shopping List</h2>
+  <div id="app" class="app-container">
+    <!-- Left Column: Add Items -->
+    <div class="shopping-list-form">
+      <form @submit.prevent="addItem">
+        <input type="text" v-model="itemName" placeholder="Item name" required>
+        <input type="number" v-model.number="itemQuantity" placeholder="Quantity" min="1" required>
+        <button type="submit" class="btn btn-success small-btn">Add Item</button>
+      </form>
+
+      <ul>
+        <li v-for="(item,index) in shoppingList" :key="item.name">
+          {{ item.name }} ({{ item.quantity }})
+          <button @click="removeItem(index)" class="btn btn-danger small-btn">Remove</button>
+        </li>
+      </ul>
+
+      <div v-if="shoppingList.length === 0" class="empty-list"></div>
+
+      <div v-else class="action-buttons">
+        <button class="btn btn-success small-btn" @click="saveShoppinglist">Save List</button>
+        <button class="btn btn-danger small-btn" @click="clearList">Clear List</button>
+      </div>
+
+      <div class="shopping-list-total">
+        Total items: {{ totalQuantity }}
+      </div>
+    </div>
+
+    <!-- Right Column: Saved Lists -->
+    <div class="shopping-list-form">
+      <h3>Saved Shopping Lists</h3>
+      <ul v-if="Object.keys(savedLists).length > 0">
+        <li v-for="(list, key) in savedLists" :key="key">
+          <div>
+            {{ formatDate(key) }} ({{ list.length }} items)
+          </div>
+          <div class="button-group">
+            <button class="btn btn-success small-btn" @click="loadList(key)">Load List</button>
+            <button class="btn btn-success small-btn" @click="emailItem(list)">Email list</button>
+            <button class="btn btn-danger small-btn" @click="deleteList(key)">Delete List</button>
+          </div>
+        </li>
+      </ul>
+
+      <div v-else class="empty-list">
+        You don't have any saved lists yet.<br />
+        Create a shopping list on the left and save it to see it here.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

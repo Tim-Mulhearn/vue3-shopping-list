@@ -1,0 +1,137 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* Flex container for two columns */
+.app-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Each form card */
+.shopping-list-form {
+  flex: 1 1 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 8px;
+  margin-top: 10px;
+  white-space: nowrap;
+}
+
+.btn-success {
+  background-color: #4CAF50;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+}
+
+.btn:hover {
+  filter: brightness(0.95);
+}
+
+.small-btn {
+  font-size: 14px;
+  padding: 6px 10px;
+}
+
+.button-group {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  background-color: #f4f4f4;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Totals and Empty States */
+.shopping-list-total {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.empty-list {
+  font-style: italic;
+  color: #888;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.action-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Responsive media query for tighter screens */
+@media (min-width: 768px) {
+  .shopping-list-form {
+    flex: 1 1 45%;
+  }
+}
