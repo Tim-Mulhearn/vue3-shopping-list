@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link rel="stylesheet" href="css/styles.css">
@@ -31,7 +30,7 @@
         <button class="btn btn-danger small-btn" @click="clearList">Clear List</button>
       </div>
 
-      <div class="shopping-list-total">
+      <div v-if="shoppingList.length > 0" class="shopping-list-total">
         Total items: {{ totalQuantity }}
       </div>
     </div>
